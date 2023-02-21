@@ -2,7 +2,7 @@ import logoIcon from "../../../assets/logoIC.svg";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Logo = () => {
+const LogoIcon = () => {
   return (
     <Link
       to="/"
@@ -14,4 +14,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default LogoIcon;
