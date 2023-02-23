@@ -6,7 +6,7 @@ import { CryptoContext } from "../../../context/CryptoContext";
 const SearchInput = ({ handleSearchData }) => {
   const [searchText, setSearchText] = useState("");
 
-  let { searchData } = useContext(CryptoContext);
+  let { searchData, setSearchData, setCoinSearch } = useContext(CryptoContext);
 
   let handleInput = (e) => {
     e.preventDefault();
@@ -15,9 +15,22 @@ const SearchInput = ({ handleSearchData }) => {
     handleSearchData(query);
   };
 
+  const clickSearch = (coin) => {
+    setCoinSearch(coin);
+    setSearchText("");
+    setSearchData();
+  };
+
+  const handleSubmit = () => {
+    searchText("");
+  };
+
   return (
     <>
-      <form className="w-96 relative flex items-center ml-7 font-nunito">
+      <form
+        onSubmit={handleSubmit}
+        className="w-96 relative flex items-center ml-7 font-nunito"
+      >
         <input
           onChange={handleInput}
           value={searchText}
@@ -39,6 +52,7 @@ const SearchInput = ({ handleSearchData }) => {
                   <>
                     <li
                       key={coin.id}
+                      onClick={() => clickSearch(coin.id)}
                       className="flex items-center ml-4 my-2 cursor-pointer"
                     >
                       <img
@@ -52,7 +66,13 @@ const SearchInput = ({ handleSearchData }) => {
                 );
               })
             ) : (
-              <h2>Please wait..</h2>
+              <div className="w-full h-full flex items-center justify-center">
+                <div
+                  className="w-8 h-8 border-4 border-amber-300 rounded-full border-b-gray-100 animate-spin"
+                  role="status"
+                />
+                <span className="ml-2">Please wait..</span>
+              </div>
             )}
           </ul>
         </>
