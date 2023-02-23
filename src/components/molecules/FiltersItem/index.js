@@ -1,4 +1,5 @@
 import React from "react";
+import CurrencySearch from "../CurrencySearch";
 import SearchItem from "../SearchItem";
 
 const FiltersItem = () => {
@@ -7,7 +8,9 @@ const FiltersItem = () => {
       <div>
         <SearchItem />
       </div>
-      <div>currency</div>
+      <div>
+        <CurrencySearch />
+      </div>
       <div>sorting</div>
     </div>
   );
