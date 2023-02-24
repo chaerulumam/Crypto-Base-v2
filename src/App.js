@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { LogoIcon, Navbar } from "./components";
+import { Footer, LogoIcon, Navbar } from "./components";
 import { CryptoProvider } from "./context/CryptoContext";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
         <LogoIcon />
         <Navbar />
         <Outlet />
+        <Footer />
       </main>
     </CryptoProvider>
   );
