@@ -12,20 +12,22 @@ const HighLowIndicator = ({ curretPrice, high, low }) => {
     setGreen(Math.ceil(greenZone));
   }, [curretPrice, high, low]);
 
-  <>
-    <span
-      className="bg-red h-1.5 rounded-l-lg w-[50%]"
-      style={{ width: `${100 - green}%` }}
-    >
-      &nbsp;
-    </span>
-    <span
-      className="bg-green h-1.5 rounded-l-lg w-[50%]"
-      style={{ width: `${green}%` }}
-    >
-      &nbsp;
-    </span>
-  </>;
+  return (
+    <>
+      <span
+        className="bg-red h-1.5 rounded-l-lg w-[50%]"
+        style={{ width: `${100 - green}%` }}
+      >
+        &nbsp;
+      </span>
+      <span
+        className="bg-green h-1.5 rounded-l-lg w-[50%]"
+        style={{ width: `${green}%` }}
+      >
+        &nbsp;
+      </span>
+    </>
+  );
 };
 
 const CryptoDetails = () => {

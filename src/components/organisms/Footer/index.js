@@ -5,7 +5,7 @@ const Footer = () => {
     <>
       <footer className="p-4">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-          © 2023{" "}
+          © {new Date().getFullYear()}{" "}
           <a
             href="https://github.com/chaerulumam"
             target="_blank"
