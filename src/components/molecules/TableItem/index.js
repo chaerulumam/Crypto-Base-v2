@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { CryptoContext } from "../../../context/CryptoContext";
 import Pagination from "../Pagination";
 
@@ -55,9 +56,17 @@ const TableItem = () => {
                           alt={data.name}
                           className="h-[1.2rem] w-[1.2rem] mx-1.5"
                         />
-                        <span>{data.symbol}</span>
+                        <span>
+                          <Link className="cursor-pointer" to={`/${data.id}`}>
+                            {data.symbol}
+                          </Link>
+                        </span>
                       </td>
-                      <td className="py-4">{data.name}</td>
+                      <td className="py-4">
+                        <Link className="cursor-pointer" to={`/${data.id}`}>
+                          {data.name}
+                        </Link>
+                      </td>
                       <td className="py-4">
                         {new Intl.NumberFormat("en-ID", {
                           style: "currency",

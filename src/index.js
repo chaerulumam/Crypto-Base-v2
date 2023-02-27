@@ -4,6 +4,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Crypto, Saved, Trending } from "./pages";
 import App from "./App";
+import { CryptoDetails } from "./components";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Crypto />,
+        children: [
+          {
+            path: ":coinId",
+            element: <CryptoDetails />,
+          },
+        ],
       },
       {
         path: "/trending",
@@ -26,7 +33,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root", "modal"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
