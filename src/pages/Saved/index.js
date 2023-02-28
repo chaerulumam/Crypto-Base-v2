@@ -4,14 +4,14 @@ import { CryptoContext } from "../../context/CryptoContext";
 import { StorageContext } from "../../context/StorageContext";
 
 const SaveBtn = ({ data }) => {
-  const { saveCoin, allCoins, removeCoins } = useContext(StorageContext);
+  const { saveCoin, allCoins, removeCoin } = useContext(StorageContext);
 
   const handleClick = (e) => {
     e.preventDefault();
     saveCoin(data.id);
 
     if (allCoins.includes(data.id)) {
-      removeCoins(data.id);
+      removeCoin(data.id);
     } else {
       saveCoin(data.id);
     }
