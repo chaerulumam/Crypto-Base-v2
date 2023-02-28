@@ -66,7 +66,7 @@ const Chart = ({ id }) => {
           .then((res) => res.json())
           .then((json) => json);
 
-        console.log("chrat-data", data);
+        // console.log("chrat-data", data);
 
         let convertedData = data[type].map((item) => {
           return {
