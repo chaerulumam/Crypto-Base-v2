@@ -14,6 +14,8 @@ export const CryptoProvider = ({ children }) => {
   const [totalPages, setTotalPages] = useState(250);
   const [perPage, setPerPage] = useState(10);
 
+  const [error, setError] = useState({ data: "", coinData: "", search: "" });
+
   const getCryptoData = async () => {
     try {
       const dataListTotal = await fetch(
@@ -74,6 +76,8 @@ export const CryptoProvider = ({ children }) => {
 
   useLayoutEffect(() => {
     getCryptoData();
+
+    // eslint-disable-next-line
   }, [coinSearch, currency, sortBy, page, perPage]);
 
   return (
@@ -97,6 +101,8 @@ export const CryptoProvider = ({ children }) => {
         getCoinData,
         coinData,
         setCoinData,
+        error,
+        setError,
       }}
     >
       {children}

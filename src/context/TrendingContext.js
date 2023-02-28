@@ -14,7 +14,7 @@ export const TrendingProvider = ({ children }) => {
       )
         .then((res) => res.json())
         .then((json) => json);
-      console.log("Trending", data);
+      // console.log("Trending", data);
       setTrendingData(data.coins);
     } catch (error) {
       console.log(error);
